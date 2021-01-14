@@ -9,7 +9,19 @@
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Resume\Resume.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="sample.resume.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties sample_1resume_1json__JsonSchema="https://json.schemastore.org/resume" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -5,9 +5,14 @@ namespace Resume
 {
     public partial class Resume
     {
-        public static Resume Parse(string json)
+        public static Resume FromJson(string json)
         {
-            return null;
+            return JsonConvert.DeserializeObject<Resume>(json);
+        }
+
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
