@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Resume
 {
-    public class Resume
+    public partial class Resume
     {
         public static Resume Parse(string json)
         {
