@@ -51,6 +51,6 @@ namespace Resume
         /// Specify any number of social networks that you participate in
         /// </summary>
         [JsonProperty("profiles")]
-        public List<Profile> Profiles { get; set; }
+        public List<Profile> Profiles { get; set; } = new List<Profile>();
     }
 }

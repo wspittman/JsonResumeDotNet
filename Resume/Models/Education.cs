@@ -47,6 +47,6 @@ namespace Resume
         /// e.g. H1302 - Introduction to American history
         /// </summary>
         [JsonProperty("courses")]
-        public List<string> Courses { get; set; }
+        public List<string> Courses { get; set; } = new List<string>();
     }
 }

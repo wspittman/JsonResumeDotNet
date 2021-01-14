@@ -41,6 +41,6 @@ namespace Resume
         /// e.g. Increased profits by 20% from 2011-2012 through viral advertising
         /// </summary>
         [JsonProperty("highlights")]
-        public List<string> Highlights { get; set; }
+        public List<string> Highlights { get; set; } = new List<string>();
     }
 }

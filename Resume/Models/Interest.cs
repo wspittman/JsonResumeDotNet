@@ -15,6 +15,6 @@ namespace Resume
         /// e.g. Friedrich Nietzsche
         /// </summary>
         [JsonProperty("keywords")]
-        public List<string> Keywords { get; set; }
+        public List<string> Keywords { get; set; } = new List<string>();
     }
 }

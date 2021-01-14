@@ -23,14 +23,14 @@ namespace Resume
         /// e.g. Directs you close but not quite there
         /// </summary>
         [JsonProperty("highlights")]
-        public List<string> Highlights { get; set; }
+        public List<string> Highlights { get; set; } = new List<string>();
 
         /// <summary>
         /// Specify special elements involved
         /// e.g. AngularJS
         /// </summary>
         [JsonProperty("keywords")]
-        public List<string> Keywords { get; set; }
+        public List<string> Keywords { get; set; } = new List<string>();
 
         [JsonProperty("startDate")]
         public DateTime StartDate { get; set; }
@@ -49,7 +49,7 @@ namespace Resume
         /// e.g. Team Lead, Speaker, Writer
         /// </summary>
         [JsonProperty("roles")]
-        public List<string> Roles { get; set; }
+        public List<string> Roles { get; set; } = new List<string>();
 
         /// <summary>
         /// Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'

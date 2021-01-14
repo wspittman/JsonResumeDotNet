@@ -22,6 +22,6 @@ namespace Resume
         /// e.g. HTML
         /// </summary>
         [JsonProperty("keywords")]
-        public List<string> Keywords { get; set; }
+        public List<string> Keywords { get; set; } = new List<string>();
     }
 }
