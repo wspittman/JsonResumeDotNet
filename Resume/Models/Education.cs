@@ -31,10 +31,10 @@ namespace Resume
         public string StudyType { get; set; }
 
         [JsonProperty("startDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [JsonProperty("endDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// grade point average, e.g. 3.67/4.0

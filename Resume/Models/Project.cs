@@ -33,10 +33,10 @@ namespace Resume
         public List<string> Keywords { get; set; } = new List<string>();
 
         [JsonProperty("startDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [JsonProperty("endDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html

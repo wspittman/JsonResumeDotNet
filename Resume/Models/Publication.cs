@@ -18,7 +18,7 @@ namespace Resume
         public string Publisher { get; set; }
 
         [JsonProperty("releaseDate")]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
 
         /// <summary>
         /// e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html

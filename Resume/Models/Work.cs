@@ -37,10 +37,10 @@ namespace Resume
         public Uri Url { get; set; }
 
         [JsonProperty("startDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [JsonProperty("endDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// Give an overview of your responsibilities at the company

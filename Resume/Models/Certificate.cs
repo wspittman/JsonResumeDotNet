@@ -15,7 +15,7 @@ namespace Resume
         /// e.g. 1989-06-12
         /// </summary>
         [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// e.g. http://example.com

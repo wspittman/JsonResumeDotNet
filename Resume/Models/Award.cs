@@ -12,7 +12,7 @@ namespace Resume
         public string Title { get; set; }
 
         [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         /// <summary>
         /// e.g. Time Magazine
