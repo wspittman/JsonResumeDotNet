@@ -16,7 +16,7 @@ namespace Resume
         /// e.g. http://facebook.example.com
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
 
         /// <summary>
         /// e.g. Arts

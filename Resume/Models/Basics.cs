@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Resume
@@ -18,7 +19,7 @@ namespace Resume
         /// URL (as per RFC 3986) to a image in JPEG or PNG format
         /// </summary>
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public Uri Image { get; set; }
 
         /// <summary>
         /// e.g. thomas@gmail.com
@@ -36,7 +37,7 @@ namespace Resume
         /// URL (as per RFC 3986) to your website, e.g. personal homepage
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
 
         /// <summary>
         /// Write a short 2-3 sentence biography about yourself

@@ -24,7 +24,7 @@ namespace Resume
         /// e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
 
         /// <summary>
         /// Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.

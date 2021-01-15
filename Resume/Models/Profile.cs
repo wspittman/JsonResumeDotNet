@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Resume
 {
@@ -20,6 +21,6 @@ namespace Resume
         /// e.g. http://twitter.example.com/neutralthoughts
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; set; }
+        public Uri Url { get; set; }
     }
 }
