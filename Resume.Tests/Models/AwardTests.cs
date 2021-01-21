@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Resume.Tests
@@ -10,11 +10,26 @@ namespace Resume.Tests
         private const string FormatStringEmpty = "{{\"awards\": [{0}]}}";
         private const string FormatString = "{{\"awards\": [{{\"title\": {0}, \"date\": {1}, \"awarder\": {2}, \"summary\": {3}, \"extra\": {4}}}]}}";
 
-        private Award FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg).Awards.FirstOrDefault();
+        private Award Path(Resume resume) => resume.Awards.FirstOrDefault();
 
-        private Award FromJson(string title = null, string date = null, string awarder = null, string summary = null, string extra = null)
+        private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
+
+        private Resume FromJson(string title = null, string date = null, string awarder = null, string summary = null, string extra = null)
         {
-            return Utils.FromJson(FormatString, title, date, awarder, summary, extra).Awards.FirstOrDefault();
+            return Utils.FromJson(FormatString, title, date, awarder, summary, extra);
+        }
+
+        private Resume Constructed(string title = null, DateTime? date = null, string awarder = null, string summary = null)
+        {
+            var award = new Award
+            {
+                Title = title,
+                Date = date,
+                Awarder = awarder,
+                Summary = summary
+            };
+
+            return new Resume() { Awards = new List<Award>() { award } };
         }
 
         [Test]
@@ -22,10 +37,10 @@ namespace Resume.Tests
         {
             var fromNull = FromJsonEmpty(null);
             var fromEmpty = FromJsonEmpty("{}");
-            var constructed = new Award();
+            var constructed = Constructed();
 
-            Assert.AreEqual("null", JsonConvert.SerializeObject(fromNull));
-            Assert.AreEqual(JsonConvert.SerializeObject(fromEmpty), JsonConvert.SerializeObject(constructed));
+            Assert.AreEqual(null, Path(fromNull));
+            Assert.AreEqual(fromEmpty.ToJson(), constructed.ToJson());
         }
 
         [TestCase(null)]
@@ -34,8 +49,8 @@ namespace Resume.Tests
         public void TitleTest(string title)
         {
             var fromJson = FromJson(title: title);
-            var constructed = new Award() { Title = title };
-            Utils.ValidatePropertyPair(fromJson, constructed, title, x => (x as Award).Title);
+            var constructed = Constructed(title: title);
+            Utils.ValidatePropertyPair(fromJson, constructed, title, x => Path(x)?.Title);
         }
 
         [TestCase(null)]
@@ -48,8 +63,8 @@ namespace Resume.Tests
             DateTime? parsedDate = DateTime.TryParse(dateString, out DateTime parsed) ? parsed : (DateTime?)null;
 
             var fromJson = FromJson(date: dateString);
-            var constructed = new Award() { Date = parsedDate };
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => (x as Award).Date);
+            var constructed = Constructed(date: parsedDate);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.Date);
         }
 
         [TestCase(null)]
@@ -58,8 +73,8 @@ namespace Resume.Tests
         public void AwarderTest(string awarder)
         {
             var fromJson = FromJson(awarder: awarder);
-            var constructed = new Award() { Awarder = awarder };
-            Utils.ValidatePropertyPair(fromJson, constructed, awarder, x => (x as Award).Awarder);
+            var constructed = Constructed(awarder: awarder);
+            Utils.ValidatePropertyPair(fromJson, constructed, awarder, x => Path(x)?.Awarder);
         }
 
         [TestCase(null)]
@@ -68,8 +83,8 @@ namespace Resume.Tests
         public void SummaryTest(string summary)
         {
             var fromJson = FromJson(summary: summary);
-            var constructed = new Award() { Summary = summary };
-            Utils.ValidatePropertyPair(fromJson, constructed, summary, x => (x as Award).Summary);
+            var constructed = Constructed(summary: summary);
+            Utils.ValidatePropertyPair(fromJson, constructed, summary, x => Path(x)?.Summary);
         }
     }
 }

@@ -7,31 +7,22 @@ namespace Resume.Tests
 {
     public static class Utils
     {
-        public static Resume FromJson(string format, params string[] args)
+        public static Resume FromJson(string format, params object[] args)
         {
-            var prepped = args.Select(str =>
-            {
-                return str switch
-                {
-                    null => "null",
-                    "{}" => "{}",
-                    _ => $"\"{str}\"",
-                };
-            }).ToArray();
-
+            var prepped = args.Select(str => (str as string == "{}") ? "{}" : JsonConvert.SerializeObject(str)).ToArray();
             return Resume.FromJson(string.Format(format, prepped));
         }
 
-        public static void ValidatePropertyPair(object objectParsed, object objectConstructed, object expectedPropertyValue, Func<object, object> getProperty)
+        public static void ValidatePropertyPair(Resume parsed, Resume constructed, object expectedPropertyValue, Func<Resume, object> getProperty)
         {
             // Is the property value what we expect?
-            Assert.AreEqual(expectedPropertyValue, getProperty(objectParsed));
+            Assert.AreEqual(expectedPropertyValue, getProperty(parsed));
 
             // Do the parsed and constructed objects both have matching values?
-            Assert.AreEqual(getProperty(objectParsed), getProperty(objectConstructed));
+            Assert.AreEqual(getProperty(parsed), getProperty(constructed));
 
             // Do the parsed and constructed objects both have matching serialized forms?
-            Assert.AreEqual(JsonConvert.SerializeObject(objectParsed), JsonConvert.SerializeObject(objectConstructed));
+            Assert.AreEqual(parsed.ToJson(), constructed.ToJson());
         }
     }
 }
