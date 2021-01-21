@@ -20,12 +20,12 @@ namespace Resume.Tests
         [Test]
         public void EmptyTest()
         {
-            var awardNull = FromJsonEmpty(null);
-            var awardEmpty = FromJsonEmpty("{}");
-            var awardConstructed = new Award();
+            var fromNull = FromJsonEmpty(null);
+            var fromEmpty = FromJsonEmpty("{}");
+            var constructed = new Award();
 
-            Assert.AreEqual("null", JsonConvert.SerializeObject(awardNull));
-            Assert.AreEqual(JsonConvert.SerializeObject(awardEmpty), JsonConvert.SerializeObject(awardConstructed));
+            Assert.AreEqual("null", JsonConvert.SerializeObject(fromNull));
+            Assert.AreEqual(JsonConvert.SerializeObject(fromEmpty), JsonConvert.SerializeObject(constructed));
         }
 
         [TestCase(null)]
@@ -33,9 +33,9 @@ namespace Resume.Tests
         [TestCase("One of the 100 greatest minds of the century")]
         public void TitleTest(string title)
         {
-            var awardFromJson = FromJson(title: title);
-            var awardConstructed = new Award() { Title = title };
-            Utils.ValidatePropertyPair(awardFromJson, awardConstructed, title, x => (x as Award).Title);
+            var fromJson = FromJson(title: title);
+            var constructed = new Award() { Title = title };
+            Utils.ValidatePropertyPair(fromJson, constructed, title, x => (x as Award).Title);
         }
 
         [TestCase(null)]
@@ -47,9 +47,9 @@ namespace Resume.Tests
         {
             DateTime? parsedDate = DateTime.TryParse(dateString, out DateTime parsed) ? parsed : (DateTime?)null;
 
-            var awardFromJson = FromJson(date: dateString);
-            var awardConstructed = new Award() { Date = parsedDate };
-            Utils.ValidatePropertyPair(awardFromJson, awardConstructed, parsedDate, x => (x as Award).Date);
+            var fromJson = FromJson(date: dateString);
+            var constructed = new Award() { Date = parsedDate };
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => (x as Award).Date);
         }
 
         [TestCase(null)]
@@ -57,9 +57,9 @@ namespace Resume.Tests
         [TestCase("Time Magazine")]
         public void AwarderTest(string awarder)
         {
-            var awardFromJson = FromJson(awarder: awarder);
-            var awardConstructed = new Award() { Awarder = awarder };
-            Utils.ValidatePropertyPair(awardFromJson, awardConstructed, awarder, x => (x as Award).Awarder);
+            var fromJson = FromJson(awarder: awarder);
+            var constructed = new Award() { Awarder = awarder };
+            Utils.ValidatePropertyPair(fromJson, constructed, awarder, x => (x as Award).Awarder);
         }
 
         [TestCase(null)]
@@ -67,9 +67,9 @@ namespace Resume.Tests
         [TestCase("Received for my work with Quantum Physics")]
         public void SummaryTest(string summary)
         {
-            var awardFromJson = FromJson(summary: summary);
-            var awardConstructed = new Award() { Summary = summary };
-            Utils.ValidatePropertyPair(awardFromJson, awardConstructed, summary, x => (x as Award).Summary);
+            var fromJson = FromJson(summary: summary);
+            var constructed = new Award() { Summary = summary };
+            Utils.ValidatePropertyPair(fromJson, constructed, summary, x => (x as Award).Summary);
         }
     }
 }

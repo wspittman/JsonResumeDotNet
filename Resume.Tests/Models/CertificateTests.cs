@@ -20,12 +20,12 @@ namespace Resume.Tests
         [Test]
         public void EmptyTest()
         {
-            var certificateNull = FromJsonEmpty(null);
-            var certificateEmpty = FromJsonEmpty("{}");
-            var certificateConstructed = new Certificate();
+            var fromNull = FromJsonEmpty(null);
+            var fromEmpty = FromJsonEmpty("{}");
+            var constructed = new Certificate();
 
-            Assert.AreEqual("null", JsonConvert.SerializeObject(certificateNull));
-            Assert.AreEqual(JsonConvert.SerializeObject(certificateEmpty), JsonConvert.SerializeObject(certificateConstructed));
+            Assert.AreEqual("null", JsonConvert.SerializeObject(fromNull));
+            Assert.AreEqual(JsonConvert.SerializeObject(fromEmpty), JsonConvert.SerializeObject(constructed));
         }
 
         [TestCase(null)]
@@ -33,9 +33,9 @@ namespace Resume.Tests
         [TestCase("Certified Kubernetes Administrator")]
         public void NameTest(string name)
         {
-            var certificateFromJson = FromJson(name: name);
-            var certificateConstructed = new Certificate() { Name = name };
-            Utils.ValidatePropertyPair(certificateFromJson, certificateConstructed, name, x => (x as Certificate).Name);
+            var fromJson = FromJson(name: name);
+            var constructed = new Certificate() { Name = name };
+            Utils.ValidatePropertyPair(fromJson, constructed, name, x => (x as Certificate).Name);
         }
 
         [TestCase(null)]
@@ -47,9 +47,9 @@ namespace Resume.Tests
         {
             DateTime? parsedDate = DateTime.TryParse(dateString, out DateTime parsed) ? parsed : (DateTime?)null;
 
-            var certificateFromJson = FromJson(date: dateString);
-            var certificateConstructed = new Certificate() { Date = parsedDate };
-            Utils.ValidatePropertyPair(certificateFromJson, certificateConstructed, parsedDate, x => (x as Certificate).Date);
+            var fromJson = FromJson(date: dateString);
+            var constructed = new Certificate() { Date = parsedDate };
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => (x as Certificate).Date);
         }
 
         [TestCase(null)]
@@ -60,9 +60,9 @@ namespace Resume.Tests
             // Match deserialization corner cases by using UriTypeConverter instead of Uri.TryCreate 
             var parsedUri = urlString == null ? null : new UriTypeConverter().ConvertFromString(urlString) as Uri;
 
-            var certificateFromJson = FromJson(url: urlString);
-            var certificateConstructed = new Certificate() { Url = parsedUri };
-            Utils.ValidatePropertyPair(certificateFromJson, certificateConstructed, parsedUri, x => (x as Certificate).Url);
+            var fromJson = FromJson(url: urlString);
+            var constructed = new Certificate() { Url = parsedUri };
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => (x as Certificate).Url);
         }
 
         [TestCase(null)]
@@ -70,9 +70,9 @@ namespace Resume.Tests
         [TestCase("CNCF")]
         public void IssuerTest(string issuer)
         {
-            var certificateFromJson = FromJson(issuer: issuer);
-            var certificateConstructed = new Certificate() { Issuer = issuer };
-            Utils.ValidatePropertyPair(certificateFromJson, certificateConstructed, issuer, x => (x as Certificate).Issuer);
+            var fromJson = FromJson(issuer: issuer);
+            var constructed = new Certificate() { Issuer = issuer };
+            Utils.ValidatePropertyPair(fromJson, constructed, issuer, x => (x as Certificate).Issuer);
         }
     }
 }
