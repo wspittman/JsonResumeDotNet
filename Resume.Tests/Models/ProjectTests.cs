@@ -62,7 +62,7 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("Collated works of 2017")]
-        public void Description(string description)
+        public void DescriptionTest(string description)
         {
             var fromJson = FromJson(description: description);
             var constructed = Constructed(description: description);
