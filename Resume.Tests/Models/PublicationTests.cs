@@ -19,7 +19,7 @@ namespace Resume.Tests
             return Utils.FromJson(FormatString, name, publisher, releaseDate, url, summary, extra);
         }
 
-        private Resume Constructed(string name = null, string publisher = null, DateTime? releaseDate = null, Uri url = null, string summary = null, string extra = null)
+        private Resume Constructed(string name = null, string publisher = null, DateTime? releaseDate = null, Uri url = null, string summary = null)
         {
             var publication = new Publication();
 
