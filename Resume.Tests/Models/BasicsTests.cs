@@ -1,14 +1,13 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Resume.Tests
 {
     public class BasicsTests
     {
-        private const string FormatStringEmpty = "{{\"basics\": {0} }}";
-        private const string FormatString = "{{\"basics\": {{ \"name\": {0}, \"label\": {1}, \"image\": {2}, \"email\": {3}, \"phone\": {4}, \"url\": {5}, \"summary\": {6}, \"location\": {7}, \"profiles\": {8}, \"extra\": {9} }} }}";
+        private const string FormatStringEmpty = "{{ \"basics\": {0} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"name\": {0}, \"label\": {1}, \"image\": {2}, \"email\": {3}, \"phone\": {4}, \"url\": {5}, \"summary\": {6}, \"location\": {7}, \"profiles\": {8}, \"extra\": {9} }} }}";
 
         private Basics Path(Resume resume) => resume.Basics;
 

@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class AwardTests
     {
-        private const string FormatStringEmpty = "{{\"awards\": [{0}]}}";
-        private const string FormatString = "{{\"awards\": [{{\"title\": {0}, \"date\": {1}, \"awarder\": {2}, \"summary\": {3}, \"extra\": {4}}}]}}";
+        private const string FormatStringEmpty = "{{ \"awards\": [ {0} ] }}";
+        private const string FormatString = "{{ \"awards\": [ {{ \"title\": {0}, \"date\": {1}, \"awarder\": {2}, \"summary\": {3}, \"extra\": {4} }} ] }}";
 
         private Award Path(Resume resume) => resume.Awards.FirstOrDefault();
 

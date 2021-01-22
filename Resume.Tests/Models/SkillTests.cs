@@ -6,8 +6,8 @@ namespace Resume.Tests
 {
     public class SkillTests
     {
-        private const string FormatStringEmpty = "{{\"skills\": [{0}]}}";
-        private const string FormatString = "{{\"skills\": [{{\"name\": {0}, \"level\": {1}, \"keywords\": {2}, \"extra\": {3}}}]}}";
+        private const string FormatStringEmpty = "{{ \"skills\": [ {0} ] }}";
+        private const string FormatString = "{{ \"skills\": [ {{ \"name\": {0}, \"level\": {1}, \"keywords\": {2}, \"extra\": {3} }} ] }}";
 
         private Skill Path(Resume resume) => resume.Skills.FirstOrDefault();
 

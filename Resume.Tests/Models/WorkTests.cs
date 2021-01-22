@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class WorkTests
     {
-        private const string FormatStringEmpty = "{{\"work\": [{0}]}}";
-        private const string FormatString = "{{\"work\": [{{\"name\": {0}, \"location\": {1}, \"description\": {2}, \"position\": {3}, \"url\": {4}, \"startDate\": {5}, \"endDate\": {6}, \"summary\": {7}, \"highlights\": {8}, \"extra\": {9}}}]}}";
+        private const string FormatStringEmpty = "{{ \"work\": [ {0} ] }}";
+        private const string FormatString = "{{ \"work\": [ {{ \"name\": {0}, \"location\": {1}, \"description\": {2}, \"position\": {3}, \"url\": {4}, \"startDate\": {5}, \"endDate\": {6}, \"summary\": {7}, \"highlights\": {8}, \"extra\": {9} }} ] }}";
 
         private Work Path(Resume resume) => resume.Work.FirstOrDefault();
 

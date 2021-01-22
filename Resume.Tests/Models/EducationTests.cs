@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class EducationTests
     {
-        private const string FormatStringEmpty = "{{\"education\": [{0}]}}";
-        private const string FormatString = "{{\"education\": [{{\"institution\": {0}, \"url\": {1}, \"area\": {2}, \"studyType\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"score\": {6}, \"courses\": {7}, \"extra\": {8}}}]}}";
+        private const string FormatStringEmpty = "{{ \"education\": [ {0} ] }}";
+        private const string FormatString = "{{ \"education\": [ {{ \"institution\": {0}, \"url\": {1}, \"area\": {2}, \"studyType\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"score\": {6}, \"courses\": {7}, \"extra\": {8} }} ] }}";
 
         private Education Path(Resume resume) => resume.Education.FirstOrDefault();
 

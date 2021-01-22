@@ -4,8 +4,8 @@ namespace Resume.Tests
 {
     public class LocationTests
     {
-        private const string FormatStringEmpty = "{{\"basics\": {{ \"location\": {0} }} }}";
-        private const string FormatString = "{{\"basics\": {{ \"location\": {{ \"address\": {0}, \"postalCode\": {1}, \"city\": {2}, \"countryCode\": {3}, \"region\": {4}, \"extra\": {5} }} }} }}";
+        private const string FormatStringEmpty = "{{ \"basics\": {{ \"location\": {0} }} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"location\": {{ \"address\": {0}, \"postalCode\": {1}, \"city\": {2}, \"countryCode\": {3}, \"region\": {4}, \"extra\": {5} }} }} }}";
 
         private Location Path(Resume resume) => resume.Basics?.Location;
 

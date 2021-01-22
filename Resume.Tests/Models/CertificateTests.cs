@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class CertificateTests
     {
-        private const string FormatStringEmpty = "{{\"certificates\": [{0}]}}";
-        private const string FormatString = "{{\"certificates\": [{{\"name\": {0}, \"date\": {1}, \"url\": {2}, \"issuer\": {3}, \"extra\": {4}}}]}}";
+        private const string FormatStringEmpty = "{{ \"certificates\": [ {0} ] }}";
+        private const string FormatString = "{{ \"certificates\": [ {{ \"name\": {0}, \"date\": {1}, \"url\": {2}, \"issuer\": {3}, \"extra\": {4} }} ] }}";
         
         private Certificate Path(Resume resume) => resume.Certificates.FirstOrDefault();
 

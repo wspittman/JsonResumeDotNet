@@ -6,8 +6,8 @@ namespace Resume.Tests
 {
     public class ReferenceInfoTests
     {
-        private const string FormatStringEmpty = "{{\"references\": [{0}]}}";
-        private const string FormatString = "{{\"references\": [{{\"name\": {0}, \"reference\": {1}, \"extra\": {2}}}]}}";
+        private const string FormatStringEmpty = "{{ \"references\": [ {0} ] }}";
+        private const string FormatString = "{{ \"references\": [ {{ \"name\": {0}, \"reference\": {1}, \"extra\": {2} }} ] }}";
 
         private ReferenceInfo Path(Resume resume) => resume.References.FirstOrDefault();
 

@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class VolunteerTests
     {
-        private const string FormatStringEmpty = "{{\"volunteer\": [{0}]}}";
-        private const string FormatString = "{{\"volunteer\": [{{\"organization\": {0}, \"position\": {1}, \"url\": {2}, \"startDate\": {3}, \"endDate\": {4}, \"summary\": {5}, \"highlights\": {6}, \"extra\": {7}}}]}}";
+        private const string FormatStringEmpty = "{{ \"volunteer\": [ {0} ] }}";
+        private const string FormatString = "{{ \"volunteer\": [ {{ \"organization\": {0}, \"position\": {1}, \"url\": {2}, \"startDate\": {3}, \"endDate\": {4}, \"summary\": {5}, \"highlights\": {6}, \"extra\": {7} }} ] }}";
 
         private Volunteer Path(Resume resume) => resume.Volunteer.FirstOrDefault();
 

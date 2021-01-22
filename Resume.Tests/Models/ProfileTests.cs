@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class ProfileTests
     {
-        private const string FormatStringEmpty = "{{\"basics\": {{ \"profiles\": [ {0} ] }} }}";
-        private const string FormatString = "{{\"basics\": {{ \"profiles\": [ {{ \"network\": {0}, \"username\": {1}, \"url\": {2}, \"extra\": {3} }} ] }} }}";
+        private const string FormatStringEmpty = "{{ \"basics\": {{ \"profiles\": [ {0} ] }} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"profiles\": [ {{ \"network\": {0}, \"username\": {1}, \"url\": {2}, \"extra\": {3} }} ] }} }}";
 
         private Profile Path(Resume resume) => resume.Basics?.Profiles.FirstOrDefault();
 

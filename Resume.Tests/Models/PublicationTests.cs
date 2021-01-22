@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class PublicationTests
     {
-        private const string FormatStringEmpty = "{{\"publications\": [{0}]}}";
-        private const string FormatString = "{{\"publications\": [{{\"name\": {0}, \"publisher\": {1}, \"releaseDate\": {2}, \"url\": {3}, \"summary\": {4}, \"extra\": {5}}}]}}";
+        private const string FormatStringEmpty = "{{ \"publications\": [ {0} ] }}";
+        private const string FormatString = "{{ \"publications\": [ {{ \"name\": {0}, \"publisher\": {1}, \"releaseDate\": {2}, \"url\": {3}, \"summary\": {4}, \"extra\": {5} }} ] }}";
 
         private Publication Path(Resume resume) => resume.Publications.FirstOrDefault();
 

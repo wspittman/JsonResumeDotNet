@@ -7,8 +7,8 @@ namespace Resume.Tests
 {
     public class ProjectTests
     {
-        private const string FormatStringEmpty = "{{\"projects\": [{0}]}}";
-        private const string FormatString = "{{\"projects\": [{{\"name\": {0}, \"description\": {1}, \"highlights\": {2}, \"keywords\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"url\": {6}, \"roles\": {7}, \"entity\": {8}, \"type\": {9}, \"extra\": {10}}}]}}";
+        private const string FormatStringEmpty = "{{ \"projects\": [ {0} ] }}";
+        private const string FormatString = "{{ \"projects\": [ {{ \"name\": {0}, \"description\": {1}, \"highlights\": {2}, \"keywords\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"url\": {6}, \"roles\": {7}, \"entity\": {8}, \"type\": {9}, \"extra\": {10} }} ] }}";
 
         private Project Path(Resume resume) => resume.Projects.FirstOrDefault();
 

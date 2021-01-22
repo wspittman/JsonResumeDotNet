@@ -6,8 +6,8 @@ namespace Resume.Tests
 {
     public class LanguageInfoTests
     {
-        private const string FormatStringEmpty = "{{\"languages\": [{0}]}}";
-        private const string FormatString = "{{\"languages\": [{{\"language\": {0}, \"fluency\": {1}, \"extra\": {2}}}]}}";
+        private const string FormatStringEmpty = "{{ \"languages\": [ {0} ] }}";
+        private const string FormatString = "{{ \"languages\": [ {{ \"language\": {0}, \"fluency\": {1}, \"extra\": {2} }} ] }}";
 
         private LanguageInfo Path(Resume resume) => resume.Languages.FirstOrDefault();
 
