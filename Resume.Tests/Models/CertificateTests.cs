@@ -21,13 +21,13 @@ namespace Resume.Tests
 
         private Resume Constructed(string name = null, DateTime? date = null, Uri url = null, string issuer = null)
         {
-            var certificate = new Certificate
-            {
-                Name = name,
-                Date = date,
-                Url = url,
-                Issuer = issuer
-            };
+            var certificate = new Certificate();
+
+            // Set values separately from object initialization to preserve any default values.
+            if (name != null) certificate.Name = name;
+            if (date != null) certificate.Date = date;
+            if (url != null) certificate.Url = url;
+            if (issuer != null) certificate.Issuer = issuer;
 
             return new Resume() { Certificates = new List<Certificate>() { certificate } };
         }

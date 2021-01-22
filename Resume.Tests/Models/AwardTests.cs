@@ -21,13 +21,13 @@ namespace Resume.Tests
 
         private Resume Constructed(string title = null, DateTime? date = null, string awarder = null, string summary = null)
         {
-            var award = new Award
-            {
-                Title = title,
-                Date = date,
-                Awarder = awarder,
-                Summary = summary
-            };
+            var award = new Award();
+
+            // Set values separately from object initialization to preserve any default values.
+            if (title != null) award.Title = title;
+            if (date != null) award.Date = date;
+            if (awarder != null) award.Awarder = awarder;
+            if (summary != null) award.Summary = summary;
 
             return new Resume() { Awards = new List<Award>() { award } };
         }
