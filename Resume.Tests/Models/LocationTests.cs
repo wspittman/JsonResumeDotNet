@@ -5,15 +5,15 @@ namespace Resume.Tests
     public class LocationTests
     {
         private const string FormatStringEmpty = "{{ \"basics\": {{ \"location\": {0} }} }}";
-        private const string FormatString = "{{ \"basics\": {{ \"location\": {{ \"address\": {0}, \"postalCode\": {1}, \"city\": {2}, \"countryCode\": {3}, \"region\": {4}, \"extra\": {5} }} }} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"location\": {{ \"address\": {0}, \"postalCode\": {1}, \"city\": {2}, \"countryCode\": {3}, \"region\": {4} }} }} }}";
 
         private Location Path(Resume resume) => resume.Basics?.Location;
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string address = null, string postalCode = null, string city = null, string countryCode = null, string region = null, string extra = null)
+        private Resume FromJson(string address = null, string postalCode = null, string city = null, string countryCode = null, string region = null)
         {
-            return Utils.FromJson(FormatString, address, postalCode, city, countryCode, region, extra);
+            return Utils.FromJson(FormatString, address, postalCode, city, countryCode, region);
         }
 
         private Resume Constructed(string address = null, string postalCode = null, string city = null, string countryCode = null, string region = null)

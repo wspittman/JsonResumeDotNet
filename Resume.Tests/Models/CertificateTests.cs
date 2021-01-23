@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class CertificateTests
     {
         private const string FormatStringEmpty = "{{ \"certificates\": [ {0} ] }}";
-        private const string FormatString = "{{ \"certificates\": [ {{ \"name\": {0}, \"date\": {1}, \"url\": {2}, \"issuer\": {3}, \"extra\": {4} }} ] }}";
+        private const string FormatString = "{{ \"certificates\": [ {{ \"name\": {0}, \"date\": {1}, \"url\": {2}, \"issuer\": {3} }} ] }}";
         
         private Certificate Path(Resume resume) => resume.Certificates.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string date = null, string url = null, string issuer = null, string extra = null)
+        private Resume FromJson(string name = null, string date = null, string url = null, string issuer = null)
         {
-            return Utils.FromJson(FormatString, name, date, url, issuer, extra);
+            return Utils.FromJson(FormatString, name, date, url, issuer);
         }
 
         private Resume Constructed(string name = null, DateTime? date = null, Uri url = null, string issuer = null)

@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class WorkTests
     {
         private const string FormatStringEmpty = "{{ \"work\": [ {0} ] }}";
-        private const string FormatString = "{{ \"work\": [ {{ \"name\": {0}, \"location\": {1}, \"description\": {2}, \"position\": {3}, \"url\": {4}, \"startDate\": {5}, \"endDate\": {6}, \"summary\": {7}, \"highlights\": {8}, \"extra\": {9} }} ] }}";
+        private const string FormatString = "{{ \"work\": [ {{ \"name\": {0}, \"location\": {1}, \"description\": {2}, \"position\": {3}, \"url\": {4}, \"startDate\": {5}, \"endDate\": {6}, \"summary\": {7}, \"highlights\": {8} }} ] }}";
 
         private Work Path(Resume resume) => resume.Work.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string location = null, string description = null, string position = null, string url = null, string startDate = null, string endDate = null, string summary = null, string[] highlights = null, string extra = null)
+        private Resume FromJson(string name = null, string location = null, string description = null, string position = null, string url = null, string startDate = null, string endDate = null, string summary = null, string[] highlights = null)
         {
-            return Utils.FromJson(FormatString, name, location, description, position, url, startDate, endDate, summary, highlights, extra);
+            return Utils.FromJson(FormatString, name, location, description, position, url, startDate, endDate, summary, highlights);
         }
 
         private Resume Constructed(string name = null, string location = null, string description = null, string position = null, Uri url = null, DateTime? startDate = null, DateTime? endDate = null, string summary = null, List<string> highlights = null)

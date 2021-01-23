@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class PublicationTests
     {
         private const string FormatStringEmpty = "{{ \"publications\": [ {0} ] }}";
-        private const string FormatString = "{{ \"publications\": [ {{ \"name\": {0}, \"publisher\": {1}, \"releaseDate\": {2}, \"url\": {3}, \"summary\": {4}, \"extra\": {5} }} ] }}";
+        private const string FormatString = "{{ \"publications\": [ {{ \"name\": {0}, \"publisher\": {1}, \"releaseDate\": {2}, \"url\": {3}, \"summary\": {4} }} ] }}";
 
         private Publication Path(Resume resume) => resume.Publications.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string publisher = null, string releaseDate = null, string url = null, string summary = null, string extra = null)
+        private Resume FromJson(string name = null, string publisher = null, string releaseDate = null, string url = null, string summary = null)
         {
-            return Utils.FromJson(FormatString, name, publisher, releaseDate, url, summary, extra);
+            return Utils.FromJson(FormatString, name, publisher, releaseDate, url, summary);
         }
 
         private Resume Constructed(string name = null, string publisher = null, DateTime? releaseDate = null, Uri url = null, string summary = null)

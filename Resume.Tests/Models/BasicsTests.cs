@@ -7,15 +7,15 @@ namespace Resume.Tests
     public class BasicsTests
     {
         private const string FormatStringEmpty = "{{ \"basics\": {0} }}";
-        private const string FormatString = "{{ \"basics\": {{ \"name\": {0}, \"label\": {1}, \"image\": {2}, \"email\": {3}, \"phone\": {4}, \"url\": {5}, \"summary\": {6}, \"location\": {7}, \"profiles\": {8}, \"extra\": {9} }} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"name\": {0}, \"label\": {1}, \"image\": {2}, \"email\": {3}, \"phone\": {4}, \"url\": {5}, \"summary\": {6}, \"location\": {7}, \"profiles\": {8} }} }}";
 
         private Basics Path(Resume resume) => resume.Basics;
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string label = null, string image = null, string email = null, string phone = null, string url = null, string summary = null, string location = null, string[] profiles = null, string extra = null)
+        private Resume FromJson(string name = null, string label = null, string image = null, string email = null, string phone = null, string url = null, string summary = null, string location = null, string[] profiles = null)
         {
-            return Utils.FromJson(FormatString, name, label, image, email, phone, url, summary, location, profiles, extra);
+            return Utils.FromJson(FormatString, name, label, image, email, phone, url, summary, location, profiles);
         }
 
         private Resume Constructed(string name = null, string label = null, Uri image = null, string email = null, string phone = null, Uri url = null, string summary = null, Location location = null, List<Profile> profiles = null)

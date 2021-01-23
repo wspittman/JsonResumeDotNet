@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class ProfileTests
     {
         private const string FormatStringEmpty = "{{ \"basics\": {{ \"profiles\": [ {0} ] }} }}";
-        private const string FormatString = "{{ \"basics\": {{ \"profiles\": [ {{ \"network\": {0}, \"username\": {1}, \"url\": {2}, \"extra\": {3} }} ] }} }}";
+        private const string FormatString = "{{ \"basics\": {{ \"profiles\": [ {{ \"network\": {0}, \"username\": {1}, \"url\": {2} }} ] }} }}";
 
         private Profile Path(Resume resume) => resume.Basics?.Profiles.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string network = null, string username = null, string url = null, string extra = null)
+        private Resume FromJson(string network = null, string username = null, string url = null)
         {
-            return Utils.FromJson(FormatString, network, username, url, extra);
+            return Utils.FromJson(FormatString, network, username, url);
         }
 
         private Resume Constructed(string network = null, string username = null, Uri url = null)

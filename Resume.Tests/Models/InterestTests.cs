@@ -7,15 +7,15 @@ namespace Resume.Tests
     public class InterestTests
     {
         private const string FormatStringEmpty = "{{ \"interests\": [ {0} ] }}";
-        private const string FormatString = "{{ \"interests\": [ {{ \"name\": {0}, \"keywords\": {1}, \"extra\": {2} }} ] }}";
+        private const string FormatString = "{{ \"interests\": [ {{ \"name\": {0}, \"keywords\": {1} }} ] }}";
 
         private Interest Path(Resume resume) => resume.Interests.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string[] keywords = null, string extra = null)
+        private Resume FromJson(string name = null, string[] keywords = null)
         {
-            return Utils.FromJson(FormatString, name, keywords, extra);
+            return Utils.FromJson(FormatString, name, keywords);
         }
 
         private Resume Constructed(string name = null, List<string> keywords = null)

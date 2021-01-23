@@ -7,15 +7,15 @@ namespace Resume.Tests
     public class SkillTests
     {
         private const string FormatStringEmpty = "{{ \"skills\": [ {0} ] }}";
-        private const string FormatString = "{{ \"skills\": [ {{ \"name\": {0}, \"level\": {1}, \"keywords\": {2}, \"extra\": {3} }} ] }}";
+        private const string FormatString = "{{ \"skills\": [ {{ \"name\": {0}, \"level\": {1}, \"keywords\": {2} }} ] }}";
 
         private Skill Path(Resume resume) => resume.Skills.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string level = null, string[] keywords = null, string extra = null)
+        private Resume FromJson(string name = null, string level = null, string[] keywords = null)
         {
-            return Utils.FromJson(FormatString, name, level, keywords, extra);
+            return Utils.FromJson(FormatString, name, level, keywords);
         }
 
         private Resume Constructed(string name = null, string level = null, List<string> keywords = null)

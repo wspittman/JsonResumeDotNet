@@ -7,15 +7,15 @@ namespace Resume.Tests
     public class ReferenceInfoTests
     {
         private const string FormatStringEmpty = "{{ \"references\": [ {0} ] }}";
-        private const string FormatString = "{{ \"references\": [ {{ \"name\": {0}, \"reference\": {1}, \"extra\": {2} }} ] }}";
+        private const string FormatString = "{{ \"references\": [ {{ \"name\": {0}, \"reference\": {1} }} ] }}";
 
         private ReferenceInfo Path(Resume resume) => resume.References.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string name = null, string reference = null, string extra = null)
+        private Resume FromJson(string name = null, string reference = null)
         {
-            return Utils.FromJson(FormatString, name, reference, extra);
+            return Utils.FromJson(FormatString, name, reference);
         }
 
         private Resume Constructed(string name = null, string reference = null)

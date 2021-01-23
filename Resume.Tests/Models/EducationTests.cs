@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class EducationTests
     {
         private const string FormatStringEmpty = "{{ \"education\": [ {0} ] }}";
-        private const string FormatString = "{{ \"education\": [ {{ \"institution\": {0}, \"url\": {1}, \"area\": {2}, \"studyType\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"score\": {6}, \"courses\": {7}, \"extra\": {8} }} ] }}";
+        private const string FormatString = "{{ \"education\": [ {{ \"institution\": {0}, \"url\": {1}, \"area\": {2}, \"studyType\": {3}, \"startDate\": {4}, \"endDate\": {5}, \"score\": {6}, \"courses\": {7} }} ] }}";
 
         private Education Path(Resume resume) => resume.Education.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string institution = null, string url = null, string area = null, string studyType = null, string startDate = null, string endDate = null, string score = null, string[] courses = null, string extra = null)
+        private Resume FromJson(string institution = null, string url = null, string area = null, string studyType = null, string startDate = null, string endDate = null, string score = null, string[] courses = null)
         {
-            return Utils.FromJson(FormatString, institution, url, area, studyType, startDate, endDate, score, courses, extra);
+            return Utils.FromJson(FormatString, institution, url, area, studyType, startDate, endDate, score, courses);
         }
 
         private Resume Constructed(string institution = null, Uri url = null, string area = null, string studyType = null, DateTime? startDate = null, DateTime? endDate = null, string score = null, List<string> courses = null)

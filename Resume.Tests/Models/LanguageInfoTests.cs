@@ -7,15 +7,15 @@ namespace Resume.Tests
     public class LanguageInfoTests
     {
         private const string FormatStringEmpty = "{{ \"languages\": [ {0} ] }}";
-        private const string FormatString = "{{ \"languages\": [ {{ \"language\": {0}, \"fluency\": {1}, \"extra\": {2} }} ] }}";
+        private const string FormatString = "{{ \"languages\": [ {{ \"language\": {0}, \"fluency\": {1} }} ] }}";
 
         private LanguageInfo Path(Resume resume) => resume.Languages.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string language = null, string fluency = null, string extra = null)
+        private Resume FromJson(string language = null, string fluency = null)
         {
-            return Utils.FromJson(FormatString, language, fluency, extra);
+            return Utils.FromJson(FormatString, language, fluency);
         }
 
         private Resume Constructed(string language = null, string fluency = null)

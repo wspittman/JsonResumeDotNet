@@ -8,15 +8,15 @@ namespace Resume.Tests
     public class VolunteerTests
     {
         private const string FormatStringEmpty = "{{ \"volunteer\": [ {0} ] }}";
-        private const string FormatString = "{{ \"volunteer\": [ {{ \"organization\": {0}, \"position\": {1}, \"url\": {2}, \"startDate\": {3}, \"endDate\": {4}, \"summary\": {5}, \"highlights\": {6}, \"extra\": {7} }} ] }}";
+        private const string FormatString = "{{ \"volunteer\": [ {{ \"organization\": {0}, \"position\": {1}, \"url\": {2}, \"startDate\": {3}, \"endDate\": {4}, \"summary\": {5}, \"highlights\": {6} }} ] }}";
 
         private Volunteer Path(Resume resume) => resume.Volunteer.FirstOrDefault();
 
         private Resume FromJsonEmpty(string arg) => Utils.FromJson(FormatStringEmpty, arg);
 
-        private Resume FromJson(string organization = null, string position = null, string url = null, string startDate = null, string endDate = null, string summary = null, string[] highlights = null, string extra = null)
+        private Resume FromJson(string organization = null, string position = null, string url = null, string startDate = null, string endDate = null, string summary = null, string[] highlights = null)
         {
-            return Utils.FromJson(FormatString, organization, position, url, startDate, endDate, summary, highlights, extra);
+            return Utils.FromJson(FormatString, organization, position, url, startDate, endDate, summary, highlights);
         }
 
         private Resume Constructed(string organization = null, string position = null, Uri url = null, DateTime? startDate = null, DateTime? endDate = null, string summary = null, List<string> highlights = null)
