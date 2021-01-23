@@ -58,13 +58,16 @@ namespace Resume.Tests
         [TestCase("1/1/0001")]
         [TestCase("12/31/9999")]
         [TestCase("1989-06-12")]
-        public void DateTest(string dateString)
+        [TestCase("Bad Date", true)]
+        [TestCase("1/1/0000", true)]
+        [TestCase("12/31/10000", true)]
+        public void DateTest(string dateString, bool expectParsingError = false)
         {
             DateTime? parsedDate = DateTime.TryParse(dateString, out DateTime parsed) ? parsed : (DateTime?)null;
 
             var fromJson = FromJson(date: dateString);
             var constructed = Constructed(date: parsedDate);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.Date);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.Date, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]

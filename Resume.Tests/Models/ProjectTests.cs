@@ -100,13 +100,16 @@ namespace Resume.Tests
         [TestCase("1/1/0001")]
         [TestCase("12/31/9999")]
         [TestCase("1989-06-12")]
-        public void StartDateTest(string startDate)
+        [TestCase("Bad Date", true)]
+        [TestCase("1/1/0000", true)]
+        [TestCase("12/31/10000", true)]
+        public void StartDateTest(string startDate, bool expectParsingError = false)
         {
             DateTime? parsedDate = DateTime.TryParse(startDate, out DateTime parsed) ? parsed : (DateTime?)null;
 
             var fromJson = FromJson(startDate: startDate);
             var constructed = Constructed(startDate: parsedDate);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.StartDate);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.StartDate, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]
@@ -114,13 +117,16 @@ namespace Resume.Tests
         [TestCase("1/1/0001")]
         [TestCase("12/31/9999")]
         [TestCase("1989-06-12")]
-        public void EndDateTest(string endDate)
+        [TestCase("Bad Date", true)]
+        [TestCase("1/1/0000", true)]
+        [TestCase("12/31/10000", true)]
+        public void EndDateTest(string endDate, bool expectParsingError = false)
         {
             DateTime? parsedDate = DateTime.TryParse(endDate, out DateTime parsed) ? parsed : (DateTime?)null;
 
             var fromJson = FromJson(endDate: endDate);
             var constructed = Constructed(endDate: parsedDate);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.EndDate);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedDate, x => Path(x)?.EndDate, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]
