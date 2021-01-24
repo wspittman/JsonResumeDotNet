@@ -34,6 +34,8 @@ namespace Resume
                 }
             };
 
+            settings.Converters.Add(new AbsoluteUriConverter());
+
             var resume = JsonConvert.DeserializeObject<Resume>(json, settings);
             
             resume.ParsingErrors = errors;

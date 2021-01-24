@@ -70,14 +70,15 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg")]
-        public void ImageTest(string imageString)
+        [TestCase("upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg", true)]
+        [TestCase("Clearly not a url", true)]
+        public void ImageTest(string imageString, bool expectParsingError = false)
         {
-            // Match deserialization corner cases by using UriTypeConverter instead of Uri.TryCreate 
-            var parsedUri = imageString == null ? null : new UriTypeConverter().ConvertFromString(imageString) as Uri;
+            Uri.TryCreate(imageString, UriKind.Absolute, out Uri parsedUri);
 
             var fromJson = FromJson(image: imageString);
             var constructed = Constructed(image: parsedUri);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Image);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Image, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]
@@ -103,14 +104,15 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("http://facebook.example.com")]
-        public void UrlTest(string urlString)
+        [TestCase("facebook.example.com", true)]
+        [TestCase("Clearly not a url", true)]
+        public void UrlTest(string urlString, bool expectParsingError = false)
         {
-            // Match deserialization corner cases by using UriTypeConverter instead of Uri.TryCreate 
-            var parsedUri = urlString == null ? null : new UriTypeConverter().ConvertFromString(urlString) as Uri;
+            Uri.TryCreate(urlString, UriKind.Absolute, out Uri parsedUri);
 
             var fromJson = FromJson(url: urlString);
             var constructed = Constructed(url: parsedUri);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Url);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Url, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]

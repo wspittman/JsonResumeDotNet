@@ -19,7 +19,7 @@ namespace Resume.Tests
             Assert.AreEqual(expectedPropertyValue, getProperty(parsed));
 
             // Does the parsed object have the expected number of parsing errors?
-            Assert.AreEqual(expectedParsingErrorCount, parsed.ParsingErrors.Count);
+            Assert.AreEqual(expectedParsingErrorCount, parsed.ParsingErrors.Count, string.Join('\n', parsed.ParsingErrors));
 
             // Do the parsed and constructed objects both have matching values?
             Assert.AreEqual(getProperty(parsed), getProperty(constructed));

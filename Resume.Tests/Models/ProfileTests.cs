@@ -65,14 +65,15 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("http://twitter.example.com/neutralthoughts")]
-        public void UrlTest(string urlString)
+        [TestCase("twitter.example.com/neutralthoughts", true)]
+        [TestCase("Clearly not a url", true)]
+        public void UrlTest(string urlString, bool expectParsingError = false)
         {
-            // Match deserialization corner cases by using UriTypeConverter instead of Uri.TryCreate 
-            var parsedUri = urlString == null ? null : new UriTypeConverter().ConvertFromString(urlString) as Uri;
+            Uri.TryCreate(urlString, UriKind.Absolute, out Uri parsedUri);
 
             var fromJson = FromJson(url: urlString);
             var constructed = Constructed(url: parsedUri);
-            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Url);
+            Utils.ValidatePropertyPair(fromJson, constructed, parsedUri, x => Path(x)?.Url, expectParsingError ? 1 : 0);
         }
     }
 }
