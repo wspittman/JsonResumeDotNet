@@ -84,11 +84,14 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("thomas@gmail.com")]
-        public void EmailTest(string email)
+        [TestCase("Clearly not an email address", true)]
+        public void EmailTest(string email, bool expectParsingError = false)
         {
+            string expected = string.IsNullOrEmpty(email) || expectParsingError ? null : email;
+
             var fromJson = FromJson(email: email);
-            var constructed = Constructed(email: email);
-            Utils.ValidatePropertyPair(fromJson, constructed, email, x => Path(x)?.Email);
+            var constructed = Constructed(email: expected);
+            Utils.ValidatePropertyPair(fromJson, constructed, expected, x => Path(x)?.Email, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]

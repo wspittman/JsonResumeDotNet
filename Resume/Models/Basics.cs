@@ -25,6 +25,7 @@ namespace Resume
         /// e.g. thomas@gmail.com
         /// </summary>
         [JsonProperty("email")]
+        [JsonConverter(typeof(EmailConverter))]
         public string Email { get; set; }
 
         /// <summary>

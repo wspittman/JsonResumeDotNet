@@ -15,17 +15,13 @@ namespace Resume.Tests
 
         public static void ValidatePropertyPair(Resume parsed, Resume constructed, object expectedPropertyValue, Func<Resume, object> getProperty, int expectedParsingErrorCount = 0)
         {
-            // Is the property value what we expect?
-            Assert.AreEqual(expectedPropertyValue, getProperty(parsed));
+            Assert.AreEqual(expectedPropertyValue, getProperty(parsed), "The property value is not what we expect");
 
-            // Does the parsed object have the expected number of parsing errors?
-            Assert.AreEqual(expectedParsingErrorCount, parsed.ParsingErrors.Count, string.Join('\n', parsed.ParsingErrors));
+            Assert.AreEqual(expectedParsingErrorCount, parsed.ParsingErrors.Count, $"Unexpected number of parsing errors{Environment.NewLine}{string.Join(Environment.NewLine, parsed.ParsingErrors)}");
 
-            // Do the parsed and constructed objects both have matching values?
-            Assert.AreEqual(getProperty(parsed), getProperty(constructed));
+            Assert.AreEqual(getProperty(parsed), getProperty(constructed), "Parsed and constructed objects do not have matching values");
 
-            // Do the parsed and constructed objects both have matching serialized forms?
-            Assert.AreEqual(parsed.ToJson(), constructed.ToJson());
+            Assert.AreEqual(parsed.ToJson(), constructed.ToJson(), "Parsed and constructed objects do not have matching serialized forms");
         }
     }
 }
