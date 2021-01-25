@@ -74,11 +74,16 @@ namespace Resume.Tests
         [TestCase(null)]
         [TestCase("")]
         [TestCase("US")]
-        public void CountryCodeTest(string countryCode)
+        [TestCase("ZZ", true)]
+        [TestCase("EN-US", true)]
+        [TestCase("Clearly not a country code", true)]
+        public void CountryCodeTest(string countryCode, bool expectParsingError = false)
         {
+            string expected = string.IsNullOrEmpty(countryCode) || expectParsingError ? null : countryCode;
+
             var fromJson = FromJson(countryCode: countryCode);
-            var constructed = Constructed(countryCode: countryCode);
-            Utils.ValidatePropertyPair(fromJson, constructed, countryCode, x => Path(x)?.CountryCode);
+            var constructed = Constructed(countryCode: expected);
+            Utils.ValidatePropertyPair(fromJson, constructed, expected, x => Path(x)?.CountryCode, expectParsingError ? 1 : 0);
         }
 
         [TestCase(null)]

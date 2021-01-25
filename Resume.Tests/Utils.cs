@@ -15,7 +15,7 @@ namespace Resume.Tests
 
         public static void ValidatePropertyPair(Resume parsed, Resume constructed, object expectedPropertyValue, Func<Resume, object> getProperty, int expectedParsingErrorCount = 0)
         {
-            Assert.AreEqual(expectedPropertyValue, getProperty(parsed), "The property value is not what we expect");
+            Assert.AreEqual(expectedPropertyValue, getProperty(parsed), "The property value does not match the expected value");
 
             Assert.AreEqual(expectedParsingErrorCount, parsed.ParsingErrors.Count, $"Unexpected number of parsing errors{Environment.NewLine}{string.Join(Environment.NewLine, parsed.ParsingErrors)}");
 
