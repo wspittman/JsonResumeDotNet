@@ -37,6 +37,12 @@ namespace Resume
             settings.Converters.Add(new AbsoluteUriConverter());
 
             var resume = JsonConvert.DeserializeObject<Resume>(json, settings);
+
+            if (resume == null)
+            {
+                errors.Insert(0, new ArgumentException("Text could not be parsed as JSON", "json"));
+                resume = new Resume();
+            }
             
             resume.ParsingErrors = errors;
             
