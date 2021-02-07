@@ -4,32 +4,35 @@ using System.Globalization;
 
 namespace Resume
 {
-    public class CountryCodeConverter : JsonConverter<string>
+    /// <summary>
+    /// Converts an ISO-3166 region name from JSON.
+    /// </summary>
+    public class TwoLetterISORegionNameConverter : JsonConverter<string>
     {
         public override string ReadJson(JsonReader reader, Type objectType, string existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            string countryCodeString = reader.Value as string;
+            string regionNameString = reader.Value as string;
 
             // Empty is ignored, not an exception
-            if (string.IsNullOrEmpty(countryCodeString))
+            if (string.IsNullOrEmpty(regionNameString))
             {
                 return null;
             }
 
             try
             {
-                var countryCode = new RegionInfo(countryCodeString);
+                var regionInfo = new RegionInfo(regionNameString);
 
-                if (!countryCode.TwoLetterISORegionName.Equals(countryCodeString, StringComparison.InvariantCultureIgnoreCase))
+                if (!regionInfo.TwoLetterISORegionName.Equals(regionNameString, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    throw new FormatException($"Country code string {countryCodeString} has additional decorations beyond ISO region {countryCode.TwoLetterISORegionName}");
+                    throw new FormatException($"Region name string '{regionNameString}' has additional decorations beyond ISO region name '{regionInfo.TwoLetterISORegionName}'");
                 }
 
-                return countryCode.ToString();
+                return regionInfo.ToString();
             }
             catch (FormatException ex)
             {
-                throw new JsonSerializationException($"Invalid country code string at path '{reader.Path}'", ex);
+                throw new JsonSerializationException($"Invalid region name string at path '{reader.Path}'", ex);
             }
         }
 

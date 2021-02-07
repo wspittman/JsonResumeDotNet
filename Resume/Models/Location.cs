@@ -20,7 +20,7 @@ namespace Resume
         /// code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN
         /// </summary>
         [JsonProperty("countryCode")]
-        [JsonConverter(typeof(CountryCodeConverter))]
+        [JsonConverter(typeof(TwoLetterISORegionNameConverter))]
         public string CountryCode { get; set; }
 
         /// <summary>

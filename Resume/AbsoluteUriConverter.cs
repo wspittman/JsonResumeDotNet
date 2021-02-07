@@ -3,6 +3,10 @@ using System;
 
 namespace Resume
 {
+    /// <summary>
+    /// Converts an absolute URI from JSON.
+    /// The built-in URI converter accepts relative URIs.
+    /// </summary>
     public class AbsoluteUriConverter : JsonConverter<Uri>
     {
         public override Uri ReadJson(JsonReader reader, Type objectType, Uri existingValue, bool hasExistingValue, JsonSerializer serializer)
