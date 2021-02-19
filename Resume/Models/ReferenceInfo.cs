@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Resume
+namespace JsonResume
 {
     public class ReferenceInfo
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Globalization;
 
-namespace Resume
+namespace JsonResume
 {
     /// <summary>
     /// Converts an ISO-3166 region name from JSON.

@@ -2,7 +2,7 @@
 using System;
 using System.Net.Mail;
 
-namespace Resume
+namespace JsonResume
 {
     /// <summary>
     /// Converts an email address from JSON.

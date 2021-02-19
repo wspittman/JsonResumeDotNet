@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Resume
+namespace JsonResume
 {
     public class Skill
     {

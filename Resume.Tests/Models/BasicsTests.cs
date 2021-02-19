@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Resume.Tests
+namespace JsonResume.Tests
 {
     public class BasicsTests
     {

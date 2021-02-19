@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Resume
+namespace JsonResume
 {
     public class Meta
     {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Resume.Tests
+namespace JsonResume.Tests
 {
     public class LocationTests
     {

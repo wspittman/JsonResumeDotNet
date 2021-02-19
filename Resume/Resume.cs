@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Resume
+namespace JsonResume
 {
     /// <summary>
     /// Represents a JSONResume object
