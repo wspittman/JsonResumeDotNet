@@ -1,0 +1,68 @@
+{
+  "basics": {
+		"fullName": "Full Name",
+    "location": {
+			"place": "Place"
+    },
+    "profiles": [
+      {
+				"site": "Site"
+      }
+    ]
+  },
+  "work": [
+    {
+		  "company": "Company"
+    }
+  ],
+  "volunteer": [
+		{
+			"group": "Group"
+    }
+  ],
+  "education": [
+		{
+			"school": "School"
+    }
+  ],
+  "awards": [
+    {
+			"name": "Name"
+    }
+  ],
+	"certificates": [
+	  {
+			"title": "Title"
+		}
+	],
+  "publications": [
+    {
+			"type": "Type"
+		}
+  ],
+  "skills": [
+    {
+			"category": "Category"
+    }
+  ],
+  "languages": [
+    {
+      "dialect": "Dialect"
+    }
+  ],
+  "interests": [
+    {
+			"reason": "Reason"
+    }
+  ],
+  "references": [
+    {
+      "relation": "Relation"
+    }
+  ],
+  "projects": [
+    {
+			"company": "Company"
+    }
+  ]
+}
