@@ -1,4 +1,5 @@
 {
+  "$schema": null,
   "basics": {
     "name": null,
     "label": null,
@@ -39,10 +40,10 @@
       "summary": null,
       "highlights": [
         null,
-				null
+        null
       ]
     },
-		{
+    {
       "name": null,
       "location": null,
       "description": null,
@@ -53,12 +54,12 @@
       "summary": null,
       "highlights": [
         null,
-				null
+        null
       ]
     }
   ],
   "volunteer": [
-		{
+    {
       "organization": null,
       "position": null,
       "url": null,
@@ -67,10 +68,10 @@
       "summary": null,
       "highlights": [
         null,
-				null
+        null
       ]
     },
-		{
+    {
       "organization": null,
       "position": null,
       "url": null,
@@ -79,35 +80,35 @@
       "summary": null,
       "highlights": [
         null,
-				null
+        null
       ]
     }
   ],
   "education": [
-		{
+    {
       "institution": null,
       "url": null,
-			"area": null,
-			"studyType": null,
+      "area": null,
+      "studyType": null,
       "startDate": null,
       "endDate": null,
       "score": null,
       "courses": [
         null,
-				null
+        null
       ]
     },
-		{
+    {
       "institution": null,
       "url": null,
-			"area": null,
-			"studyType": null,
+      "area": null,
+      "studyType": null,
       "startDate": null,
       "endDate": null,
       "score": null,
       "courses": [
         null,
-				null
+        null
       ]
     }
   ],
@@ -118,27 +119,27 @@
       "awarder": null,
       "summary": null
     },
-		{
+    {
       "title": null,
       "date": null,
       "awarder": null,
       "summary": null
     }
   ],
-	"certificates": [
-	  {
-		  "name": null,
-			"date": null,
-			"url": null,
-			"issuer": null
-		},
-		{
-		  "name": null,
-			"date": null,
-			"url": null,
-			"issuer": null
-		}
-	],
+  "certificates": [
+    {
+      "name": null,
+      "date": null,
+      "url": null,
+      "issuer": null
+    },
+    {
+      "name": null,
+      "date": null,
+      "url": null,
+      "issuer": null
+    }
+  ],
   "publications": [
     {
       "name": null,
@@ -147,7 +148,7 @@
       "url": null,
       "summary": null
     },
-		{
+    {
       "name": null,
       "publisher": null,
       "releaseDate": null,
@@ -161,15 +162,15 @@
       "level": null,
       "keywords": [
         null,
-				null
+        null
       ]
     },
-		{
+    {
       "name": null,
       "level": null,
       "keywords": [
         null,
-				null
+        null
       ]
     }
   ],
@@ -178,7 +179,7 @@
       "language": null,
       "fluency": null
     },
-		{
+    {
       "language": null,
       "fluency": null
     }
@@ -188,14 +189,14 @@
       "name": null,
       "keywords": [
         null,
-				null
+        null
       ]
     },
-		{
+    {
       "name": null,
       "keywords": [
         null,
-				null
+        null
       ]
     }
   ],
@@ -204,7 +205,7 @@
       "name": null,
       "reference": null
     },
-		{
+    {
       "name": null,
       "reference": null
     }
@@ -215,42 +216,47 @@
       "description": null,
       "highlights": [
         null,
-				null
+        null
       ],
       "keywords": [
-			  null,
-				null
+        null,
+        null
       ],
       "startDate": null,
       "endDate": null,
       "url": null,
       "roles": [
         null,
-				null
+        null
       ],
       "entity": null,
       "type": null
     },
-		{
+    {
       "name": null,
       "description": null,
       "highlights": [
         null,
-				null
+        null
       ],
       "keywords": [
-			  null,
-				null
+        null,
+        null
       ],
       "startDate": null,
       "endDate": null,
       "url": null,
       "roles": [
         null,
-				null
+        null
       ],
       "entity": null,
       "type": null
     }
-  ]
+  ],
+  "meta": {
+    "canonical": null,
+    "version": null,
+    "lastModified": null
+  }
 }

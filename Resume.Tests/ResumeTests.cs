@@ -71,6 +71,7 @@ namespace Resume.Tests
                 Interests = new List<Interest>() { new Interest() { Keywords = stringList }, new Interest() { Keywords = stringList } },
                 References = new List<ReferenceInfo>() { new ReferenceInfo(), new ReferenceInfo() },
                 Projects = new List<Project>() { new Project() { Highlights = stringList, Keywords = stringList, Roles = stringList }, new Project() { Highlights = stringList, Keywords = stringList, Roles = stringList } },
+                Meta = new Meta()
             };
 
             Utils.ValidateResume(fromJson, constructed);
@@ -94,6 +95,7 @@ namespace Resume.Tests
 
             var constructed = new Resume()
             {
+                Schema = new Uri("https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"),
                 Basics = new Basics()
                 {
                     Location = new Location(),
@@ -109,10 +111,11 @@ namespace Resume.Tests
                 Languages = new List<LanguageInfo>() { new LanguageInfo() },
                 Interests = new List<Interest>() { new Interest() },
                 References = new List<ReferenceInfo>() { new ReferenceInfo() },
-                Projects = new List<Project>() { new Project() }
+                Projects = new List<Project>() { new Project() },
+                Meta = new Meta()
             };
 
-            Utils.ValidateResume(fromJson, constructed, errorOnUnknownMember ? 14 : 0);
+            Utils.ValidateResume(fromJson, constructed, errorOnUnknownMember ? 15 : 0);
         }
 
         [Test]

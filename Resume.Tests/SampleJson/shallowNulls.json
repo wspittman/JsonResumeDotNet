@@ -1,14 +1,16 @@
 {
+  "$schema": null,
   "basics": null,
   "work": null,
   "volunteer": null,
   "education": null,
   "awards": null,
-	"certificates": null,
-	"publications": null,
+  "certificates": null,
+  "publications": null,
   "skills": null,
   "languages": null,
   "interests": null,
   "references": null,
-  "projects": null
+  "projects": null,
+  "meta": null
 }

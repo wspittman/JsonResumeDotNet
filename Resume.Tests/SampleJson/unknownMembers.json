@@ -1,48 +1,49 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
-		"fullName": "Full Name",
+    "fullName": "Full Name",
     "location": {
-			"place": "Place"
+      "place": "Place"
     },
     "profiles": [
       {
-				"site": "Site"
+        "site": "Site"
       }
     ]
   },
   "work": [
     {
-		  "company": "Company"
+      "company": "Company"
     }
   ],
   "volunteer": [
-		{
-			"group": "Group"
+    {
+      "group": "Group"
     }
   ],
   "education": [
-		{
-			"school": "School"
+    {
+      "school": "School"
     }
   ],
   "awards": [
     {
-			"name": "Name"
+      "name": "Name"
     }
   ],
-	"certificates": [
-	  {
-			"title": "Title"
-		}
-	],
+  "certificates": [
+    {
+      "title": "Title"
+    }
+  ],
   "publications": [
     {
-			"type": "Type"
-		}
+      "type": "Type"
+    }
   ],
   "skills": [
     {
-			"category": "Category"
+      "category": "Category"
     }
   ],
   "languages": [
@@ -52,7 +53,7 @@
   ],
   "interests": [
     {
-			"reason": "Reason"
+      "reason": "Reason"
     }
   ],
   "references": [
@@ -62,7 +63,10 @@
   ],
   "projects": [
     {
-			"company": "Company"
+      "company": "Company"
     }
-  ]
+  ],
+  "meta": {
+    "source": "Source"
+  }
 }
