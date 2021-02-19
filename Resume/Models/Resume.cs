@@ -1,10 +1,17 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Resume
 {
     public partial class Resume
     {
+        /// <summary>
+        /// Link to the version of the schema that can validate the resume
+        /// </summary>
+        [JsonProperty("$schema")]
+        public Uri Schema { get; set; }
+
         [JsonProperty("basics")]
         public Basics Basics { get; set; }
 
@@ -61,5 +68,11 @@ namespace Resume
         /// </summary>
         [JsonProperty("projects")]
         public List<Project> Projects { get; set; } = new List<Project>();
+
+        /// <summary>
+        /// The schema version and any other tooling configuration lives here
+        /// </summary>
+        [JsonProperty("meta")]
+        public Meta Meta { get; set; }
     }
 }
