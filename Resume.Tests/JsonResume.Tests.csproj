@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Resume\Resume.csproj" />
+    <ProjectReference Include="..\Resume\JsonResume.csproj" />
   </ItemGroup>
 
   <ItemGroup>
