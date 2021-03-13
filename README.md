@@ -13,7 +13,17 @@ The current schema definition can be found in the [resume-schema](https://github
 
 ## Installation
 
-TBD
+Via NuGet CLI
+
+```bash
+Install-Package JsonResumeDotNet -Version 1.0.0
+```
+
+Via .Net CLI
+
+```bash
+dotnet add package JsonResumeDotNet --version 1.0.0
+```
 
 ## Usage
 
