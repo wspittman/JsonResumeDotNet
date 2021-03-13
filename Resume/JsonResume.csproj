@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RepositoryUrl>https://github.com/wspittman/JsonResumeDotNet</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/wspittman/JsonResumeDotNet</PackageProjectUrl>
+    <PackageTags>JsonResume, Resume, CV</PackageTags>
+    <Description>A library for creating, manipulating, parsing, and validating objects using the JSON Resume schema.</Description>
+    <Company />
+    <Authors>wspittman</Authors>
+    <PackageId>JsonResumeDotNet</PackageId>
+    <Product>JsonResumeDotNet</Product>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
